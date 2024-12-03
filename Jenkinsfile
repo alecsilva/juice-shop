@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Snyk Open Source Scan - SCA') {
             steps {
+                sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash'
                 sh 'npm install'
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     snykSecurity additionalArguments: '', 
