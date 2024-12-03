@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh 'ls'
                 snykSecurity additionalArguments: '--code', 
-                             failOnIssues: false, 
+                             failOnIssues: true, 
                              failOnError: true, 
                              monitorProjectOnBuild: true, 
                              projectName: '${JOB_NAME}',
